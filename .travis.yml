@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+  - 0.10
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: yx/0Z/Kx5UxhDtCvWYpMk2EnSP/ce2mhVWuq+oM9pWb63/RASgnP8WAE1SN/62lh8Tl3a0xh+AUNc8dEWkqCxyGt8EuVU7g31CS1VmEbpmJtRHgedNzrlB82Ra3d3wnqC/YV8WDl1JdZVUdqBQXUrmdY5kY3B30Q4qvlC7k7fwU=
+  app: iosr-2014
+  on:
+    repo: ZiomekH/iosr-2014
+  strategy: git
