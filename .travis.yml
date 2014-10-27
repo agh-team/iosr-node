@@ -8,3 +8,4 @@ deploy:
   app: iosr-node
   on:
     repo: agh-team/iosr-node
+  strategy: api
