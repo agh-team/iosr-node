@@ -17,6 +17,9 @@
     "type": "git",
     "url": "https://github.com/heroku/node-js-getting-started"
   },
+  "scripts": {
+    "test": "jasmine-node tests/*.spec.js"
+  }, 
   "keywords": [
     "node",
     "heroku",
