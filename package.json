@@ -15,11 +15,24 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/heroku/node-js-getting-started"
+    "url": "https://github.com/agh-team/iosr-node.git"
   },
   "scripts": {
-    "test": "jasmine-node tests/*.spec.js"
-  }, 
+    "test": "grunt"
+  },
+  "devDependencies": {
+    "grunt-env": "latest",
+    "grunt-contrib-jshint": "latest",
+    "grunt-simple-mocha": "latest",
+    "grunt-concurrent": "latest",
+    "grunt-contrib-watch": "latest",
+    "wd": "latest",
+    "chai": "latest",
+    "chai-as-promised": "latest",
+    "lodash": "latest",
+    "colors": "latest",
+    "grunt": "~0.4.5"
+  },
   "keywords": [
     "node",
     "heroku",
