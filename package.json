@@ -18,10 +18,7 @@
     "url": "https://github.com/agh-team/iosr-node.git"
   },
   "scripts": {
-    "test": [
-      "jasmine-node tests/*.spec.js",
-      "grunt"
-    ]
+    "test": "grunt"
   },
   "devDependencies": {
     "grunt-env": "latest",
