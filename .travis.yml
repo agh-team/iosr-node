@@ -11,3 +11,10 @@ deploy:
   on:
     repo: agh-team/iosr-node
   strategy: api
+env:
+  global:
+    - secure: JLwnL+zG+eB7qWb8dwMyi3LwID/O1E7oy/oNeIDAcuyB6+TnDUuFDngYHAVHkt+7gfXo5ofGVkTpoEi3vH3o3lnLKmE10MrL9bXh5bT6s6QFZ9DxOgk7eGiCz/GTlbIeDRE0HY/VtRKEb8xpfJxIz/0wZ8IMbcKUPf0L/IlL51E=
+    - secure: H7k4Uu4lGJWRBNuZ132upiCDiu7ersDQEuWYV9sPitNsdQS87LtQ+qo5KRtlXayJbiGAO+8g08CRYnCfV/Jt0Z8FDmK3Hxk8/ohlYv6/+V+xnpoUmsHSzbX9yeyo4rQpAJOsJKNHoWKv4EhUoO+Spfe05y6uK1DbAyfHhuishd4=
+addons:
+  sauce_connect: true
+
