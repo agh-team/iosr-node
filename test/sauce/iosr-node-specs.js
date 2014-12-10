@@ -65,9 +65,9 @@ describe('iosr-node (' + desired.browserName + ')', function() {
 
     it("should get home page", function(done) {
         browser
-            .get("http://localhost:4445/")
+            .get("http://iosr-node.herokuapp.com/")
             .title()
-            .should.become("http://localhost:4445")
+            .should.become("http://iosr-node.herokuapp.com/")
             .nodeify(done);
     });
 });
