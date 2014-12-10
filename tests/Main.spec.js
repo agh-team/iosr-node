@@ -1,6 +1,6 @@
 describe("hello", function() {
       it('returns "world"', function() {
-          expect("world1").toEqual("world1");
+          expect("world2").toEqual("world2");
       });
   });
   
