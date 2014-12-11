@@ -5,6 +5,23 @@ var _ = require('lodash');
 var desireds = require('./desireds');
 
 var gruntConfig = { 
+    
+     jasmine_node: {
+        options: {
+          forceExit: true,
+          match: '.',
+          matchall: false,
+          extensions: 'js',
+          specNameMatcher: 'spec',
+          jUnit: {
+            report: false,
+            savePath : "./build/reports/jasmine/",
+            useDotNotation: true,
+            consolidate: true
+          }
+    },
+    all: ['tests/']
+  },
         env: {
             // dynamically filled
         },
@@ -61,6 +78,7 @@ module.exports = function(grunt) {
     grunt.initConfig(gruntConfig);
 
     // These plugins provide necessary tasks.
+    grunt.loadNpmTasks('grunt-jasmine-node');
     grunt.loadNpmTasks('grunt-env');
     grunt.loadNpmTasks('grunt-simple-mocha');
     grunt.loadNpmTasks('grunt-concurrent');
@@ -68,7 +86,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Default task.
-    grunt.registerTask('default', ['test:sauce:' + _(desireds).keys().first()]);
+    
+    
+    grunt.registerTask('default', ['jasmine_node','test:sauce:' + _(desireds).keys().first()]);
 
     _(desireds).each(function(desired, key) {
             grunt.registerTask('test:sauce:' + key, ['env:' + key, 'simplemocha:sauce']);

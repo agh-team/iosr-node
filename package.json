@@ -26,6 +26,7 @@
     "grunt-simple-mocha": "latest",
     "grunt-concurrent": "latest",
     "grunt-contrib-watch": "latest",
+    "grunt-jasmine-node": "latest",
     "wd": "latest",
     "chai": "latest",
     "chai-as-promised": "latest",
