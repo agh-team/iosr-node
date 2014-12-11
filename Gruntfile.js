@@ -4,7 +4,7 @@ var _ = require('lodash');
 
 var desireds = require('./desireds');
 
-var gruntConfig = {
+var gruntConfig = { 
         env: {
             // dynamically filled
         },
