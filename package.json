@@ -26,13 +26,14 @@
     "grunt-simple-mocha": "latest",
     "grunt-concurrent": "latest",
     "grunt-contrib-watch": "latest",
-    "grunt-jasmine-node": "latest",
+    "grunt-jasmine-node-coverage": "latest",
     "wd": "latest",
     "chai": "latest",
     "chai-as-promised": "latest",
     "lodash": "latest",
     "colors": "latest",
-    "grunt": "~0.4.5"
+    "grunt": "~0.4.5",
+    "rewire": "latest"
   },
   "keywords": [
     "node",
