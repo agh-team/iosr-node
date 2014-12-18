@@ -1,45 +1,45 @@
 {
-  "name": "node-js-getting-started",
-  "version": "0.1.2",
-  "description": "A sample Node.js app using Express 4",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
-  },
-  "dependencies": {
-    "express": "3.6.0",
-    "pg":"3.1.0",
-    "jasmine-node": "1.3.1"
-  },
-  "engines": {
-    "node": "0.10.x"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/agh-team/iosr-node.git"
-  },
-  "scripts": {
-    "test": "grunt"
-  },
-  "devDependencies": {
-    "grunt-env": "latest",
-    "grunt-contrib-jshint": "latest",
-    "grunt-simple-mocha": "latest",
-    "grunt-concurrent": "latest",
-    "grunt-contrib-watch": "latest",
-    "grunt-jasmine-node-coverage": "latest",
-    "wd": "latest",
-    "chai": "latest",
-    "chai-as-promised": "latest",
-    "lodash": "latest",
-    "colors": "latest",
-    "grunt": "~0.4.5",
-    "rewire": "latest"
-  },
-  "keywords": [
-    "node",
-    "heroku",
-    "express"
-  ],
-  "license": "MIT"
+    "name": "node-js-getting-started",
+    "version": "0.1.2",
+    "description": "A sample Node.js app using Express 4",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "dependencies": {
+        "express": "3.6.0",
+        "pg": "3.1.0",
+        "jasmine-node": "1.3.1",
+        "rewire": "latest"
+    },
+    "engines": {
+        "node": "0.10.x"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/agh-team/iosr-node.git"
+    },
+    "scripts": {
+        "test": "grunt"
+    },
+    "devDependencies": {
+        "grunt-env": "latest",
+        "grunt-contrib-jshint": "latest",
+        "grunt-simple-mocha": "latest",
+        "grunt-concurrent": "latest",
+        "grunt-contrib-watch": "latest",
+        "grunt-jasmine-node-coverage": "latest",
+        "wd": "latest",
+        "chai": "latest",
+        "chai-as-promised": "latest",
+        "lodash": "latest",
+        "colors": "latest",
+        "grunt": "~0.4.5"
+    },
+    "keywords": [
+        "node",
+        "heroku",
+        "express"
+    ],
+    "license": "MIT"
 }
