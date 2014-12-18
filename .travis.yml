@@ -4,6 +4,7 @@ node_js:
 before_script:
   - "npm i -g jasmine-node"
   - "npm install -g grunt-cli"
+  - "npm install grunt-jasmine-node-coverage --save-dev"
 deploy:
   provider: heroku
   api_key:
