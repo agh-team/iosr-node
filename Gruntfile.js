@@ -7,7 +7,7 @@ var desireds = require('./desireds');
 var gruntConfig = { 
     
      jasmine_node: {
-        src: ['./models/task.js'],
+        src: ['./models/*'],
         options: {
           coverage: {},
           forceExit: true,
