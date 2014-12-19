@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    title= "Twoja todo-lista"
+  body
+    h1#site_title Twoja lista zadań
+    if typeof(user) != "undefined"
+            div#user_detail.clearfix
+                img(style='width: 50px', src='#{user.picture}') 
+                div#user_info
+                    span#user_name Witaj #{user.name}
+                    a(href='/logout') Wyloguj
+    block content
+
+
