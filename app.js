@@ -55,5 +55,57 @@ app.get('/', function(req, res) {
     });
 });
 
+app.get('/addTask', function(req, res) {
+    if (typeof req.user === "undefined") {
+        res.redirect('/');
+        return;
+    }
+    res.render('addTask', {
+    });
+});
+
+app.get('/deleteTask', function(req, res) {
+    if (typeof req.user === "undefined") {
+        res.redirect('/');
+        return;
+    }
+    var task = new Task(req.query.id, undefined, undefined, undefined, req.user.id, undefined);
+    task.delete(db.getConnection(), function(err) {
+        if (!err)
+            res.redirect('/');
+    });
+});
+
+app.get('/editTask', function(req, res) {
+    if (typeof req.user === "undefined") {
+        res.redirect('/');
+        return;
+    }
+    var task = new Task(req.query.id, undefined, undefined, undefined, req.user.id, undefined);
+    task.getFromDb(db.getConnection(), function(err, task) {
+        if (!err) {
+            res.render('editTask', {task: task, statuses: conf.statuses});
+        } else {
+            return;
+        }
+    });
+
+});
+
+app.post('/saveTask', function(req, res) {
+    if (typeof req.user === "undefined") {
+        res.redirect('/');
+        return;
+    }
+    var task = new Task(req.body.id, req.body.title, req.body.desc, req.body.status, req.user.id, conf.statuses);//-----USER ID
+    task.save(db.getConnection(), function(err) {
+        if (!err)
+            res.redirect('/');
+    });
+
+
+
+});
+
 var port = process.env.PORT || conf.port;
 app.listen(port, process.env.OPENSHIFT_NODEJS_IP);

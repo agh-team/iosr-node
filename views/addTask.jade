@@ -1,0 +1,14 @@
+extends ../views/layout
+
+block append content
+
+    h2 Dodaj nowe zadanie
+    form(method="POST",action="/saveTask")
+        div.form_field_box.clearfix
+            label(for="title") Tytuł zadania
+            input(type="text",name="title", id="title")
+        div.form_field_box.clearfix
+            label(for="desc") Opis zadania
+            textarea(name="desc", id="desc")
+        div.form_field_box.clearfix
+            input(type="submit", value="Dodaj zadanie")
