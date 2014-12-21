@@ -1,0 +1,25 @@
+extends ../views/layout
+
+block append content
+
+    h2 Edytuj zadanie
+    form(method="POST",action="/saveTask")
+        div.form_field_box.clearfix
+            label(for="title") Tytuł zadania 
+            input(type="text",name="title", id="title", value=task.title)
+        div.form_field_box.clearfix
+            label(for="desc") Opis zadania
+            textarea(name="desc", id="desc") #{task.desc}
+        div.form_field_box.clearfix
+            label(for="status") Status zadania
+            select(name="status", id="status")
+                - for (var i in statuses) {
+                  if statuses[i] == task.status
+                    option(value="#{statuses[i]}" selected="selected") #{statuses[i]}
+                  else
+                    option(value="#{statuses[i]}") #{statuses[i]}
+                - }
+                option(value="do zrobienia") Do zrobienia
+        div.form_field_box.clearfix
+            input(type="hidden",name="id", value=task.id)
+            input(type="submit", value="Zapisz")
