@@ -41,6 +41,27 @@ app.configure(function() {
 
 });
 
+app.get('/tasks', function(req, res) {
+
+    if (typeof req.user === "undefined") {
+        res.redirect('/');
+        return;
+    }
+
+    var tasks = new TaskList(req.user.id);
+    tasks.getTasks(db.getConnection(), Task, function(err, result) {
+        if (!err) {
+            res.render('tasks', {
+                user: req.user,
+                tasks: result
+
+            });
+        }
+    });
+
+
+});
+
 app.get('/', function(req, res) {
 
     if (typeof req.user !== "undefined") {

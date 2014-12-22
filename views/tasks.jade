@@ -1,0 +1,29 @@
+extends ../views/layout
+
+block append content
+
+    if tasks.length != 0
+        table
+            thead
+                tr
+                    th Tytuł
+                    th Opis
+                    th Status
+                    th Data utworzenia
+                    th
+                    th
+            tbody
+                - for (var i in tasks) {
+                    tr
+                        td #{tasks[i].title}
+                        td #{tasks[i].desc}
+                        td #{tasks[i].status}
+                        td #{tasks[i].created}
+                        td 
+                            a.edit_action(href='/editTask?id=#{tasks[i].id}') edytuj
+                        td
+                            a.delete_action(href='/deleteTask?id=#{tasks[i].id}') usuń
+                - }
+    else
+        p Nie masz żadnych zadan.
+    a(id='new_task', href='/addTask') Dodaj nowe zadanie
