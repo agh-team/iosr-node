@@ -5,6 +5,7 @@ var express = require('express')
         , db = new Db(conf.db_host, conf.db_user, conf.db_password, conf.db_database, conf.db_ssl)
         , Users = require('./models/user')
         , Task = require('./models/task')
+        , TaskList = require('./models/taskList')
         , path = require('path')
         , users = new Users();
 
