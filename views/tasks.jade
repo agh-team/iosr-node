@@ -20,10 +20,10 @@ block append content
                         td #{tasks[i].status}
                         td #{tasks[i].created}
                         td 
-                            a.edit_action(href='/editTask?id=#{tasks[i].id}') edytuj
+                            a.edit_action(href='/editTask?id=#{tasks[i].id}')#editTaskButton edytuj
                         td
-                            a.delete_action(href='/deleteTask?id=#{tasks[i].id}') usuń
+                            a.delete_action(href='/deleteTask?id=#{tasks[i].id}')#deleteTaskButton usuń
                 - }
     else
         p Nie masz żadnych zadan.
-    a(id='new_task', href='/addTask') Dodaj nowe zadanie
+    a(id='new_task', href='/addTask')#addTaskButton Dodaj nowe zadanie
