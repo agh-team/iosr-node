@@ -44,6 +44,10 @@ app.configure(function() {
 
 app.get('/tasks', function(req, res) {
 
+    if (typeof req.user === "undefined" && typeof req.session.user !== "undefined") {
+        req.user = req.session.user;
+    }
+
     if (typeof req.user === "undefined") {
         res.redirect('/');
         return;
@@ -64,7 +68,9 @@ app.get('/tasks', function(req, res) {
 });
 
 app.get('/', function(req, res) {
-
+    if (typeof req.user === "undefined" && typeof req.session.user !== "undefined") {
+        req.user = req.session.user;
+    }
     if (typeof req.user !== "undefined") {
         res.redirect('/tasks');
     }
@@ -77,7 +83,16 @@ app.get('/', function(req, res) {
     });
 });
 
+app.get('/demo', function(req, res) {
+    req.session.user = {"id": 0, "name": "selenium tester", "picture": "http://cdn3.iconfinder.com/data/icons/softwaredemo/PNG/256x256/User1.png"};
+    res.redirect('/');
+    return;
+});
+
 app.get('/addTask', function(req, res) {
+    if (typeof req.user === "undefined" && typeof req.session.user !== "undefined") {
+        req.user = req.session.user;
+    }
     if (typeof req.user === "undefined") {
         res.redirect('/');
         return;
@@ -87,6 +102,9 @@ app.get('/addTask', function(req, res) {
 });
 
 app.get('/deleteTask', function(req, res) {
+    if (typeof req.user === "undefined" && typeof req.session.user !== "undefined") {
+        req.user = req.session.user;
+    }
     if (typeof req.user === "undefined") {
         res.redirect('/');
         return;
@@ -99,6 +117,9 @@ app.get('/deleteTask', function(req, res) {
 });
 
 app.get('/editTask', function(req, res) {
+    if (typeof req.user === "undefined" && typeof req.session.user !== "undefined") {
+        req.user = req.session.user;
+    }
     if (typeof req.user === "undefined") {
         res.redirect('/');
         return;
@@ -115,6 +136,9 @@ app.get('/editTask', function(req, res) {
 });
 
 app.post('/saveTask', function(req, res) {
+    if (typeof req.user === "undefined" && typeof req.session.user !== "undefined") {
+        req.user = req.session.user;
+    }
     if (typeof req.user === "undefined") {
         res.redirect('/');
         return;
