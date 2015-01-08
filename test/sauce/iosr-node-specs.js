@@ -64,10 +64,84 @@ describe('iosr-node (' + desired.browserName + ')', function() {
     });
 
     it("should get home page", function(done) {
-        browser
-            .get("http://iosr-node.herokuapp.com/")
+    browser
+            .get("http://iosr-node.herokuapp.com/demo")
             .title()
-            .should.become("http://iosr-node.herokuapp.com/")
+            .should.become("Twoja todo-lista")
+            .nodeify(done);
+    });
+
+    it("home page - proper content", function(done) {
+    browser
+        .get("http://iosr-node.herokuapp.com/demo")
+        .elementById('user_name')
+        .text()
+        .should.become("Witaj selenium tester")
+        .elementById('logoutButton')
+        .text()
+        .should.become("Wyloguj")
+        .elementById('new_task')
+        .text()
+        .should.become("Dodaj nowe zadanie")
+        .nodeify(done);
+    });
+
+   it("adding new task", function(done) {
+        browser
+            .get("http://iosr-node.herokuapp.com/demo")
+            .elementById('new_task')
+            .click()
+            .elementById('site_title')
+            .text()
+            .should.become("Twoja lista zadań")
+            .elementByTagName('h2')
+            .text()
+            .should.become("Dodaj nowe zadanie")
+            .elementById('title')
+            .type("Zakupy")
+            .elementById('saveNewTaskButton')
+            .click()
+            .elementByTagName('td')
+            .text()
+            .should.become('Zakupy')
+            .nodeify(done);
+    });
+
+    it("todo list is not empty - edit status", function(done) {
+        browser
+            .get("http://iosr-node.herokuapp.com/demo")
+            .elementById('editTaskButton')
+            .text()
+            .should.become("edytuj")
+            .elementById('deleteTaskButton')
+            .text()
+            .should.become("usuń")
+            .elementById('editTaskButton')
+            .click()
+            .elementByTagName('h2')
+            .text()
+            .should.become("Edytuj zadanie")
+            .elementById('status')
+            .text()
+            .should.become('Do zrobieniaW trakcie realizacjiWstrzymaneWykonaneAnulowaneDo zrobienia')
+            .elementById('status')
+            .type("Wykonane")
+            .elementById('saveEditedTaskButton')
+            .click()
+            .elementsByTagName('td')
+            .text()
+            .should.become("Twoja lista zadań\nWitaj selenium tester\nWyloguj\nTytuł Opis Status Data utworzenia\nZakupy Wykonane 2015-1-8 edytuj usuń\nDodaj nowe zadanie")
+            .nodeify(done);
+    });
+
+    it("remove task", function(done) {
+        browser
+            .get("http://iosr-node.herokuapp.com/demo")
+            .elementById('deleteTaskButton')
+            .click()
+            .elementByTagName('p')
+            .text()
+            .should.become('Nie masz żadnych zadan.')
             .nodeify(done);
     });
 });

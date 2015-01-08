@@ -33,7 +33,7 @@ var gruntConfig = {
                     timeout: 60000,
                     reporter: 'spec'
                 },
-                all: {src: ['test/sauce/**/*-specs.js']}
+                src: ['test/sauce/**/*-specs.js']
             }
         },    
         jshint: {
