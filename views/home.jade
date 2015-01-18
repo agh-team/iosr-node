@@ -1,6 +1,6 @@
 extends ../views/layout
 
 block append content
-    p.login_info Aby korzystać z serwisu musisz się 
-        a(href='/auth/google')#loginButton zalogowac 
+    p.login_info= __("Aby korzystać z serwisu musisz się ") 
+        a(href='/auth/google')#loginButton= __("zalogowac ")
             img(style='border: 0px', src='https://www.google.com/favicon.ico')

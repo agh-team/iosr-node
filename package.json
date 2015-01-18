@@ -13,7 +13,8 @@
         "path":"*",
         "everyauth": "0.4.6",
         "jasmine-node": "latest",
-        "rewire": "latest"
+        "rewire": "latest",
+        "i18n": "latest"
     },
     "engines": {
         "node": "0.10.x"

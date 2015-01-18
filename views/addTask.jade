@@ -2,13 +2,13 @@ extends ../views/layout
 
 block append content
 
-    h2 Dodaj nowe zadanie
+    h2= __("Dodaj nowe zadanie")
     form(method="POST",action="/saveTask")
         div.form_field_box.clearfix
-            label(for="title") Tytuł zadania
+            label(for="title")= __("Tytuł zadania")
             input(type="text",name="title", id="title")
         div.form_field_box.clearfix
-            label(for="desc") Opis zadania
+            label(for="desc")= __("Opis zadania")
             textarea(name="desc", id="desc")
         div.form_field_box.clearfix
-            input(type="submit", value="Dodaj zadanie", id="saveNewTaskButton")
+            input(type="submit", value=__("Dodaj zadanie"), id="saveNewTaskButton")
