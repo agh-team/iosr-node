@@ -7,7 +7,8 @@ var express = require('express')
         , Task = require('./models/task')
         , TaskList = require('./models/taskList')
         , path = require('path')
-        , users = new Users();
+        , users = new Users()
+        , i18n = require('i18n');
 
 
 everyauth.everymodule
@@ -26,6 +27,11 @@ everyauth.google
         })
         .redirectPath('/');
 
+i18n.configure({
+    locales: ['en', 'pl'],
+    cookie: 'locale',
+    directory: __dirname + '/locales'
+});
 
 var app = express();
 app
@@ -39,9 +45,16 @@ app.configure(function() {
     app.set('views', __dirname + '/views');
     app.set('view options', {layout: false});
     app.use(express.static(path.join(__dirname, 'public')));
-
+    app.use(i18n.init);
 });
-
+app.get('/pl', function(req, res) {
+    res.cookie('locale', 'pl', { maxAge: 900000, httpOnly: true });
+    res.redirect('/');
+});
+app.get('/en', function(req, res) {
+    res.cookie('locale', 'en', { maxAge: 900000, httpOnly: true });
+    res.redirect('/');
+});
 app.get('/tasks', function(req, res) {
 
     if (typeof req.user === "undefined" && typeof req.session.user !== "undefined") {

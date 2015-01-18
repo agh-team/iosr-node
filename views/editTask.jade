@@ -5,21 +5,21 @@ block append content
     h2 Edytuj zadanie
     form(method="POST",action="/saveTask")
         div.form_field_box.clearfix
-            label(for="title") Tytuł zadania 
+            label(for="title")= __("Tytuł zadania") 
             input(type="text",name="title", id="title", value=task.title)
         div.form_field_box.clearfix
-            label(for="desc") Opis zadania
+            label(for="desc")= __("Opis zadania")
             textarea(name="desc", id="desc") #{task.desc}
         div.form_field_box.clearfix
-            label(for="status") Status zadania
+            label(for="status")= __("Status zadania")
             select(name="status", id="status")
                 - for (var i in statuses) {
                   if statuses[i] == task.status
-                    option(value="#{statuses[i]}" selected="selected") #{statuses[i]}
+                    option(value="#{statuses[i]}" selected="selected")= __(statuses[i])
                   else
-                    option(value="#{statuses[i]}") #{statuses[i]}
+                    option(value="#{statuses[i]}")= __(statuses[i])
                 - }
-                option(value="do zrobienia") Do zrobienia
+                option(value="do zrobienia")= __("Do zrobienia")
         div.form_field_box.clearfix
             input(type="hidden",name="id", value=task.id)
-            input(type="submit", value="Zapisz", id="saveEditedTaskButton")
+            input(type="submit", value=__("Zapisz"), id="saveEditedTaskButton")

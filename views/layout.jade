@@ -2,15 +2,21 @@ doctype html
 html
   head
     link(rel='stylesheet', href='assets/style.css', type='text/css' )
-    title= "Twoja todo-lista"
+    title= __("Twoja todo-lista")
   body
-    h1#site_title Twoja lista zadań
+    div#siteHeader
+        h1#site_title= __("Twoja lista zadań")
+        div#locale
+            a(href="/en")
+                img(src="/en.jpg")
+            a(href="/pl")
+                img(src="/pl.gif")
     if typeof(user) != "undefined"
             div#user_detail.clearfix
                 img(style='width: 50px', src='#{user.picture}') 
                 div#user_info
-                    span#user_name Witaj #{user.name}
-                    a(href='/logout')#logoutButton Wyloguj
+                    span#user_name= __("Witaj $user").replace("$user", user.name)
+                    a(href='/logout')#logoutButton= __("Wyloguj")
     block content
 
 

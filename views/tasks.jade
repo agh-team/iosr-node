@@ -6,10 +6,10 @@ block append content
         table
             thead
                 tr
-                    th Tytuł
-                    th Opis
-                    th Status
-                    th Data utworzenia
+                    th= __("Tytuł")
+                    th= __("Opis")
+                    th= __("Status")
+                    th= __("Data utworzenia")
                     th
                     th
             tbody
@@ -17,13 +17,13 @@ block append content
                     tr
                         td #{tasks[i].title}
                         td #{tasks[i].desc}
-                        td #{tasks[i].status}
+                        td= __(tasks[i].status)
                         td #{tasks[i].created}
                         td 
-                            a.edit_action(href='/editTask?id=#{tasks[i].id}')#editTaskButton edytuj
+                            a.edit_action(href='/editTask?id=#{tasks[i].id}')#editTaskButton= __("edytuj")
                         td
-                            a.delete_action(href='/deleteTask?id=#{tasks[i].id}')#deleteTaskButton usuń
+                            a.delete_action(href='/deleteTask?id=#{tasks[i].id}')#deleteTaskButton= __("usuń")
                 - }
     else
-        p Nie masz żadnych zadan.
-    a(id='new_task', href='/addTask') Dodaj nowe zadanie
+        p= __("Nie masz żadnych zadan.")
+    a(id='new_task', href='/addTask')= __("Dodaj nowe zadanie")
