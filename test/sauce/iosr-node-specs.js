@@ -68,6 +68,7 @@ describe('iosr-node (' + desired.browserName + ')', function() {
             .get("http://iosr-node.herokuapp.com/demo")
 	    .elementById('pl')
 	    .click()
+	    .get("http://iosr-node.herokuapp.com/demo")
             .title()
             .should.become("Twoja todo-lista")
             .nodeify(done);
