@@ -66,6 +66,8 @@ describe('iosr-node (' + desired.browserName + ')', function() {
     it("should get home page", function(done) {
     browser
             .get("http://iosr-node.herokuapp.com/demo")
+	    .elementById('pl')
+	    .click()
             .title()
             .should.become("Twoja todo-lista")
             .nodeify(done);
@@ -130,7 +132,7 @@ describe('iosr-node (' + desired.browserName + ')', function() {
             .click()
             .elementsByTagName('td')
             .text()
-            .should.become("Twoja lista zadań\nWitaj selenium tester\nWyloguj\nTytuł Opis Status Data utworzenia\nZakupy Wykonane 2015-1-8 edytuj usuń\nDodaj nowe zadanie")
+            .should.eventually.include("Twoja lista zadań\nWitaj selenium tester\nWyloguj\nTytuł Opis Status Data utworzenia\nZakupy Wykonane")
             .nodeify(done);
     });
 
