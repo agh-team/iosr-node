@@ -3,7 +3,7 @@ extends ../views/layout
 block append content
 
     h2 Edytuj zadanie
-    form(method="POST",action="/saveTask")
+    form(method="POST",class="pjax",action="/saveTask")
         div.form_field_box.clearfix
             label(for="title")= __("Tytuł zadania") 
             input(type="text",name="title", id="title", value=task.title)
