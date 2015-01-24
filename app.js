@@ -98,6 +98,7 @@ app.get('/', function(req, res) {
 
 app.get('/demo', function(req, res) {
     req.session.user = {"id": 0, "name": "selenium tester", "picture": "http://cdn3.iconfinder.com/data/icons/softwaredemo/PNG/256x256/User1.png"};
+    res.cookie('locale', 'pl', { maxAge: 900000, httpOnly: true });
     res.redirect('/');
     return;
 });
